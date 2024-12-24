@@ -1,0 +1,18 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class DateTimeExample {
+    public static void main(String[] args) {
+        LocalDateTime now = LocalDateTime.now();
+
+        // Formatter for 12-hour time with AM/PM
+        DateTimeFormatter formatter12Hour = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm a"); 
+
+        // Formatter for 24-hour time
+        DateTimeFormatter formatter24Hour = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        System.out.println("Current date and time (12-hour): " + now.format(formatter12Hour));
+        
+    }
+}
+
