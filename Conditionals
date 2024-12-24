@@ -1,0 +1,28 @@
+package javaFundamentals;
+
+public class Main {
+	public static void main(String[] args) {
+
+		/* Conditional is about giving condition to the progam to have a functions.
+
+			There are 3 type of conditional.
+
+				if(condition){ } - if the condition is true, execute only the block that cover by this this statement, and there's no other statement executed if the condition is false.
+ 
+				if(condition){ }else{ } - if the condition is false, unlike (if) statement, this statemen have extra statement to execute, and the one who catch the false statement is the (else) statement and the one who to be executed.
+
+				if(condition){ }else if(condition){ }else{ } - in this scenario, there are 2 statements and every statement have deferent conditions, and if the condition of the first statement is true the remaining statement would be false, the same whith the next statement is true, the remaining statement would be false including the first statement, but if all statement that have condition are false, still the (else) statement would be executed.
+		*/
+
+		int age = 21;
+		int qualified = 18;
+		if(age >= qualified){
+			System.out.println("Your Qualified");
+		}else if(age >= 13){
+			System.out.println("You need parent concent");
+		}else{
+			System.out.println("Your not Qualified");
+		}  
+
+	}
+}
