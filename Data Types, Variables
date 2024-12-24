@@ -1,0 +1,31 @@
+public class Main {
+	public static void main(String[] args) {
+		
+	// Thee are 2 types of Data Types:
+				
+	//	Primitive Data Types:
+
+					byte a = 10;
+
+					short b = 20000;
+
+					int c = 1000000;
+
+					long d = 1000000000000000000L;		// L is the key word of float, and it's always at the back of the values.
+
+					float e = 3.14f; 	// f is the key wod of float, and it's always at the back of the values.
+
+					double f = 3.14159;
+
+					char g = '@'; // only store 1 characters, int, or letters, and ( '' ) this sign is the key of char.
+
+					boolean h = true;	// can be true or false
+					
+	//	Non - Primitive/Reference
+
+					String i = "Hello World"; // can store words, then ( " " ) this sign is the key word of String.
+
+// This is how it's work ( DataType Variable = Value; )
+
+	}
+}
