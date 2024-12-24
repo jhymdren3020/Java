@@ -1,0 +1,41 @@
+import java.io.*;
+
+class Employee implements Serializable {
+    private static final long serialVersionUID = 1L; // Version ID
+
+    String name;
+    int age;
+    transient String password; // Will not be serialized
+
+    public Employee(String name, int age, String password) {
+        this.name = name;
+        this.age = age;
+        this.password = password;
+    }
+}
+
+public class SerializationExample {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        // Create an Employee object
+        Employee employee = new Employee("John Doe", 30, "secret");
+
+        // Serialize the object
+        FileOutputStream fileOut = new FileOutputStream("employee.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(employee);
+        out.close();
+        fileOut.close();
+        System.out.println("Serialized data is saved in employee.ser");
+
+        // Deserialize the object
+        FileInputStream fileIn = new FileInputStream("employee.ser");
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        Employee newEmployee = (Employee) in.readObject();
+        in.close();
+        fileIn.close();
+        System.out.println("Deserialized Employee...");
+        System.out.println("Name: " + newEmployee.name);
+        System.out.println("Age: " + newEmployee.age);
+        // System.out.println("Password: " + newEmployee.password); // This will throw an exception as password is transient
+    }
+}
