@@ -1,0 +1,44 @@
+public class MemoryExample {
+
+    public static void main(String[] args) {
+        // On the stack:
+        int x = 10; // Primitive type, stored directly on the stack
+
+        // On the heap:
+        MyObject obj1 = new MyObject("Object 1"); // Object created on the heap
+
+        // obj1 is a reference variable (on the stack) pointing to the object on the heap
+
+        MyObject obj2 = obj1; // obj2 is another reference to the same object on the heap
+
+        obj1 = null; // obj1 no longer points to the object.  The object is now reachable only through obj2
+
+        // At this point, the object "Object 1" is still reachable (through obj2) and won't be garbage collected yet.
+
+        obj2 = null; // Now the object is unreachable!
+
+        // The garbage collector will eventually reclaim the memory used by "Object 1".  The timing is not deterministic.
+
+        System.gc(); // Request a garbage collection (not guaranteed to run immediately)
+
+        //Creating another object
+        MyObject obj3 = new MyObject("Object 3");
+        //obj3 will be eligible for garbage collection after this method exits
+
+
+    }
+
+    static class MyObject {
+        String name;
+
+        MyObject(String name) {
+            this.name = name;
+            System.out.println("Object '" + name + "' created.");
+        }
+
+        @Override
+        protected void finalize() throws Throwable {
+            System.out.println("Object '" + name + "' garbage collected.");
+        }
+    }
+}
